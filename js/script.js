@@ -17,7 +17,7 @@ let photos = [
   i = 0,
   score = 0,
   antwoordVier,
-  timer = 5,
+  timer = 15,
   myTimer,
   oldScore = score,
   text = document.createElement("H1"),
