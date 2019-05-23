@@ -1,0 +1,87 @@
+body {
+  background-color: black;
+  font-family: "Impact", Charcoal, sans-serif;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 2%;
+  margin: 2%;
+  border-radius: 4px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid black;
+  font-family: "Impact", Charcoal, sans-serif;
+}
+
+button:hover {
+  background-color: white;
+  color: black; 
+  border: 2px solid black;
+}
+
+.slide {
+  background-color: white;
+  border-radius: 5px;
+  /*color: black;*/
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;  
+  flex-direction: column;
+  /*text-align: center; */
+  
+  align-content: center;
+}
+
+/*.slide > * {
+  border:1px black solid;
+  padding: 10px;
+}*/
+
+.question {
+  list-style: none;
+  display: none;
+}
+
+#currentQuestion {
+  display: block;
+  text-align: center;
+}
+
+#btnNext,
+#score,
+#timer {
+  display: none;
+}
+
+#imgBig { 
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1%;
+  border-radius: 5%;
+  box-shadow: 0 7px 15px 0 rgba(0,0,0,0.19), 0 5px 20px 0 rgba(0,0,0,0.2);
+}
+
+#btnStar {
+}
+#btnHowTo {
+ 
+}
+
+@media all and (max-width: 800px) {
+  .slide {
+    width: 95%;
+  }
+}
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  padding-left: 2%;
+}
