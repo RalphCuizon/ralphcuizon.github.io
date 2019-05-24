@@ -1,18 +1,39 @@
 "use strict";
 
 // Elke slide heeft een aparte afbeelding
-let photos = [
-    { url: "/img/home.jpg" },
-    { url: "/img/vraag1.jpg" },
-    { url: "/img/vraag2.jpg" },
-    { url: "/img/vraag3.jpg" },
-    { url: "/img/vraag4.jpg" },
-    { url: "/img/vraag5.jpg" },
-    { url: "/img/vraag6.jpg" },
-    { url: "/img/vraag7.jpg" },
-    { url: "/img/vraag8.jpg" },
-    { url: "/img/vraag9.jpg" },
-    { url: "/img/vraag10.jpg" }
+let photos = [{
+      url: "/Project/SNEAKERHEAD QUIZ/img/home.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag1.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag2.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag3.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag4.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag5.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag6.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag7.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag8.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag9.jpg"
+    },
+    {
+      url: "/Project/SNEAKERHEAD QUIZ/img/vraag10.jpg"
+    }
   ],
   i = 0,
   score = 0,
@@ -21,15 +42,16 @@ let photos = [
   myTimer,
   oldScore = score,
   text = document.createElement("H1"),
-  showText = document.createTextNode("Time's Out!");
+  showText = document.createTextNode("Time's Out!"),
+  clickNext = 1;
 
 //Wat er gebeurt wnr de pagina wordt geladen
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
   hideQuestions();
   createQuestion();
 
   //Wat er gebeurt bij het clicken van btnStart
-  document.getElementById("btnStart").addEventListener("click", function() {
+  document.getElementById("btnStart").addEventListener("click", function () {
     showQuestion();
     createButton();
     showPhoto();
@@ -39,13 +61,23 @@ window.addEventListener("load", function() {
   });
 
   //Wat er gebeurt bij het clicken van btnNext
-  document.getElementById("btnNext").addEventListener("click", function() {
+  document.getElementById("btnNext").addEventListener("click", function () {
+    clickNext++;
     checkAnswer();
     showScore();
     showQuestion();
     showPhoto();
     clearTimer();
     showTimer();
+
+    if(clickNext== "10") {
+      if (score >= "7") {
+        self.location = "https://ralphcuizon.github.io/ThreeJs/win";
+      } else {
+        self.location = "https://ralphcuizon.github.io/ThreeJs/lose";
+
+      }
+    }
   });
 });
 
@@ -53,7 +85,7 @@ window.addEventListener("load", function() {
 function createQuestion() {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "question.json");
-  xhr.addEventListener("readystatechange", function() {
+  xhr.addEventListener("readystatechange", function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var question = JSON.parse(xhr.responseText);
       var qList = "";
@@ -92,8 +124,7 @@ function showQuestion() {
     document.querySelectorAll(".question")[x].removeAttribute("id");
   }
   document
-    .querySelectorAll(".question")
-    [i].setAttribute("id", "currentQuestion");
+    .querySelectorAll(".question")[i].setAttribute("id", "currentQuestion");
   i++;
 }
 
@@ -139,27 +170,27 @@ function showScore() {
   document.getElementById("score").innerHTML = score + "/10";
   if (oldScore != score) {
     document.getElementById("score").style.color = "green";
-   showText = document.createTextNode("RIGHT!");
-   text.appendChild(showText);
-      document.body.appendChild(text);
-      setTimeout(function() {
-        showText.nodeValue="";
-      }, 1000);
+    showText = document.createTextNode("RIGHT!");
+    text.appendChild(showText);
+    document.body.appendChild(text);
+    setTimeout(function () {
+      showText.nodeValue = "";
+    }, 1000);
   } else {
     document.getElementById("score").style.color = "red";
     showText = document.createTextNode("WRONG!");
-   text.appendChild(showText);;
-      document.body.appendChild(text);
-      setTimeout(function() {
-        showText.nodeValue="";
-      }, 1000);
+    text.appendChild(showText);;
+    document.body.appendChild(text);
+    setTimeout(function () {
+      showText.nodeValue = "";
+    }, 1000);
   }
   oldScore = score;
 }
 
 // Toon score zonder heading
 function showScoreAfterTimeOut() {
-document.getElementById("score").innerHTML = score + "/10";
+  document.getElementById("score").innerHTML = score + "/10";
   if (oldScore != score) {
     document.getElementById("score").style.color = "green";
   } else {
@@ -170,7 +201,7 @@ document.getElementById("score").innerHTML = score + "/10";
 
 //Toon timer
 function showTimer() {
-  myTimer = setInterval(function() {
+  myTimer = setInterval(function () {
     if (timer >= "10") {
       document.getElementById("timer").innerHTML = "00:" + timer;
     } else {
@@ -189,8 +220,8 @@ function showTimer() {
       showText = document.createTextNode("Time's Out!");
       text.appendChild(showText);
       document.body.appendChild(text);
-      setTimeout(function() {
-        showText.nodeValue="";
+      setTimeout(function () {
+        showText.nodeValue = "";
       }, 1000);
     }
   }, 750);
@@ -201,4 +232,3 @@ function clearTimer() {
   clearInterval(myTimer);
   timer = "15";
 }
-
