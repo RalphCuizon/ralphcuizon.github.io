@@ -2,37 +2,37 @@
 
 // Elke slide heeft een aparte afbeelding
 let photos = [{
-      url: "/Project/SNEAKERHEAD QUIZ/img/home.jpg"
+      url: "/img/home.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag1.jpg"
+      url: "/img/vraag1.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag2.jpg"
+      url: "/img/vraag2.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag3.jpg"
+      url: "/img/vraag3.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag4.jpg"
+      url: "/img/vraag4.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag5.jpg"
+      url: "/img/vraag5.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag6.jpg"
+      url: "/img/vraag6.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag7.jpg"
+      url: "/img/vraag7.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag8.jpg"
+      url: "/img/vraag8.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag9.jpg"
+      url: "/img/vraag9.jpg"
     },
     {
-      url: "/Project/SNEAKERHEAD QUIZ/img/vraag10.jpg"
+      url: "/img/vraag10.jpg"
     }
   ],
   i = 0,
